@@ -143,4 +143,11 @@ export class WritterService {
     }
     return false;
   }
+
+  public async existServerFolder(): Promise<boolean> {
+    if (fs.existsSync(`${this._xamppPath}`)) {
+      return true;
+    }
+    return false;
+  }
 }
