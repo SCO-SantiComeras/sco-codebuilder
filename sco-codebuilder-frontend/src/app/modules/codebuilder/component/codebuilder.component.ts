@@ -290,10 +290,10 @@ export class CodebuilderComponent implements OnInit, AfterViewInit, OnDestroy {
   private getUrl() {
     if (environment.production) {
       this.safeSrc =  this.sanitizer.bypassSecurityTrustResourceUrl(
-        `${environment.httpsEnabled ? 'https://' : 'http://'}${environment.host}/codebuilder/${this.InitWritter.token}/`
+        `${environment.httpsEnabled ? 'https://' : 'http://'}${environment.host}:${environment.xamppPort}/public/codebuilder/${this.InitWritter.token}/index.html`
       );
     } else {
-      this.safeSrc =  this.sanitizer.bypassSecurityTrustResourceUrl(`http://${environment.host}/codebuilder/${this.InitWritter.token}/`);
+      this.safeSrc =  this.sanitizer.bypassSecurityTrustResourceUrl(`http://${environment.host}:${environment.xamppPort}/codebuilder/${this.InitWritter.token}/index.html`);
     }
 
     this.spinnerService.hideSpinner();

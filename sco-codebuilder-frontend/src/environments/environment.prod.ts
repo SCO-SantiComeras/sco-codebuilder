@@ -5,4 +5,5 @@ export const environment = {
   apiUrl: `http://scoapps.es:4000/api/v1`,
   socketUrl: `ws://scoapps.es:4001`,
   httpsEnabled: false,
+  xamppPort: 4000,
 };
