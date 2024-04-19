@@ -5,5 +5,5 @@ export const environment = {
   apiUrl: `http://localhost:4000/api/v1`,
   socketUrl: `ws://localhost:4001`,
   httpsEnabled: false,
-  xamppPort: 4000,
+  xamppPort: 80,
 };

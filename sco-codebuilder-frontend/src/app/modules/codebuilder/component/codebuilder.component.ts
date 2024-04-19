@@ -288,14 +288,18 @@ export class CodebuilderComponent implements OnInit, AfterViewInit, OnDestroy {
   }
 
   private getUrl() {
+    const https: string = `${environment.httpsEnabled ? 'https://' : 'http://'}`;
     if (environment.production) {
       this.safeSrc =  this.sanitizer.bypassSecurityTrustResourceUrl(
-        `${environment.httpsEnabled ? 'https://' : 'http://'}${environment.host}:${environment.xamppPort}/public/codebuilder/${this.InitWritter.token}/index.html`
+        `${https}${environment.host}:${environment.xamppPort}/public/codebuilder/${this.InitWritter.token}/index.html`
       );
-    } else {
-      this.safeSrc =  this.sanitizer.bypassSecurityTrustResourceUrl(`http://${environment.host}:${environment.xamppPort}/codebuilder/${this.InitWritter.token}/index.html`);
+      this.spinnerService.hideSpinner();
+      return;
     }
 
+    this.safeSrc =  this.sanitizer.bypassSecurityTrustResourceUrl(
+      `http://${environment.host}:${environment.xamppPort}/codebuilder/${this.InitWritter.token}/index.html`
+    );
     this.spinnerService.hideSpinner();
   }
 
