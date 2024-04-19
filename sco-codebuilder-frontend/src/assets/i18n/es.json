@@ -17,5 +17,9 @@
     "label.codebuilder.store.destroyWritter.success": "Espacio de trabajo eliminado con éxito",
     "label.codebuilder.store.destroyWritter.error": "Error intentando eliminar el espacio de trabajo",
     "label.codebuilder.store.writte.success": "Cambios en el espacio de trabajo actualizados con éxito",
-    "label.codebuilder.store.writte.error": "Error intentando escribir los cambios en el espacio de trabajo"
+    "label.codebuilder.store.writte.error": "Error intentando escribir los cambios en el espacio de trabajo",
+
+    "label.download.store.downloadFolder.success": "Ficheros descargados con éxito",
+    "label.download.store.downloadFolder.error": "Imposible descargar los ficheros",
+    "label.download.store.downloadFolder.catch": "Error intentando descargar los ficheros"
 }

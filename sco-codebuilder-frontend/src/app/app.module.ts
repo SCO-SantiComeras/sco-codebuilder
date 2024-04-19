@@ -21,6 +21,7 @@ import { MatMenuModule } from '@angular/material/menu';
 import { NgxsReduxDevtoolsPluginModule } from "@ngxs/devtools-plugin";
 import { NgxsStoragePluginModule } from "@ngxs/storage-plugin";
 import { CodebuilderModule } from './modules/codebuilder/codebuilder.module';
+import { DownloadModule } from './modules/download/download.module';
 
 export function configFactory(provider: ConfigService) {
   return () => provider.getDataFromJson('assets/config/data.json');
@@ -53,6 +54,7 @@ export function translateFactory(provider: TranslateService) {
 
     SharedModule,
     CodebuilderModule,
+    DownloadModule,
   ],
   providers: [
     WebSocketService,
