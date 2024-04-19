@@ -7,6 +7,7 @@ import { WebsocketModule } from './modules/websocket/websocket.module';
 import { WebsocketConfig } from './modules/websocket/config/websocket-config';
 import { PublicMiddleware } from './middlewares/public.middleware';
 import { WritterModule } from './modules/writter/writter.module';
+import { DownloadModule } from './modules/download/download.module';
 
 @Module({
   imports: [
@@ -31,6 +32,7 @@ import { WritterModule } from './modules/writter/writter.module';
     }),
     LoggerModule,
     WritterModule,
+    DownloadModule,
   ],
 })
 export class AppModule implements NestModule {
