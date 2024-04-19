@@ -78,7 +78,16 @@ export class AppComponent implements AfterViewInit {
           this.toastService.addErrorMessage(this.store.selectSnapshot(DownloadState.errorMsg));
         }
 
-        this.toastService.addSuccessMessage(this.store.selectSnapshot(DownloadState.successMsg));
+        try {
+          const src = `data:text/csv;base64,${download.base64}`;
+          const a = document.createElement('a');
+          a.href = src
+          a.download = download.fileName
+          a.click();
+          this.toastService.addSuccessMessage(this.store.selectSnapshot(DownloadState.successMsg));
+        } catch (error) {
+          this.toastService.addErrorMessage(this.store.selectSnapshot(DownloadState.errorMsg));
+        }
       },
       error: () => {
         this.toastService.addErrorMessage(this.store.selectSnapshot(DownloadState.errorMsg));
