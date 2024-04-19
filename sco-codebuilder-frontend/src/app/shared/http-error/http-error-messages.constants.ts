@@ -15,6 +15,11 @@ export const httpErrorMessages = {
   APP: {
     METHOD_NOT_IMPLEMENTED: 'Method not implemented',
     METHOD_NOT_ALLOWED: 'Method not allowed',
+  },
+  DOWNLOAD: {
+    DOWNLOAD_FOLDER_NOT_EXISTS: 'Download folder not exists',
+    DOWNLOAD_FOLDER_NO_FILES: 'Download folder have not files',
+    UNNABLE_CREATE_DOWNLOAD_FILE: 'Unnable to create download file'
   }
 };
   

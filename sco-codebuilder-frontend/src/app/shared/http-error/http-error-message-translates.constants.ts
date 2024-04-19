@@ -16,7 +16,12 @@ export const httpErrorMessageTranslates = {
     APP: {
       METHOD_NOT_IMPLEMENTED: 'Método no implementado',
       METHOD_NOT_ALLOWED: 'Método no permitido',
-    }
+    },
+    DOWNLOAD: {
+      DOWNLOAD_FOLDER_NOT_EXISTS: 'La carpeta de descarga no existe',
+      DOWNLOAD_FOLDER_NO_FILES: 'La carpeta de descarga no contiene ficheros',
+      UNNABLE_CREATE_DOWNLOAD_FILE: 'Imposible crear el fichero de descarga'
+    },
   },
   EN: {
     WRITTER: {
@@ -35,6 +40,11 @@ export const httpErrorMessageTranslates = {
     APP: {
       METHOD_NOT_IMPLEMENTED: 'Method not implemented',
       METHOD_NOT_ALLOWED: 'Method not allowed',
+    },
+    DOWNLOAD: {
+      DOWNLOAD_FOLDER_NOT_EXISTS: 'Download folder not exists',
+      DOWNLOAD_FOLDER_NO_FILES: 'Download folder have not files',
+      UNNABLE_CREATE_DOWNLOAD_FILE: 'Unnable to create download file'
     }
   }
 };
