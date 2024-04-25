@@ -17,6 +17,7 @@ import 'brace/mode/css';
 import 'brace/mode/html';
 import 'brace/theme/monokai';
 import { ConsoleLog } from '../model/console-log';
+import { CacheService } from 'src/app/shared/cache/cache.service';
 
 @Component({
   selector: 'app-codebuilder',
@@ -66,6 +67,7 @@ export class CodebuilderComponent implements OnInit, AfterViewInit, OnDestroy {
     private readonly sanitizer: DomSanitizer,
     private readonly spinnerService: SpinnerService,
     private readonly toastService: ToastService,
+    private readonly cacheService: CacheService,
     public readonly configService: ConfigService,
     public readonly translateService: TranslateService,
     public readonly resolutionService: ResolutionService,
@@ -178,6 +180,20 @@ export class CodebuilderComponent implements OnInit, AfterViewInit, OnDestroy {
       useWorker: false,
       mode: 'ace/mode/javascript',
     });    
+
+    /* Load Example Code */
+    if (this.cacheService.getElement('codebuilder-example')) {
+      if (this.appType == 'web') {
+        this.htmlEditor_WEB.setValue(this.cacheService.getElement('codebuilder-example-html'));
+        this.cssEditor_WEB.setValue(this.cacheService.getElement('codebuilder-example-css'));
+        this.jsEditor_WEB.setValue(this.cacheService.getElement('codebuilder-example-js'));
+      } else {
+        this.htmlEditor_TABLET_MOBILE.setValue(this.cacheService.getElement('codebuilder-example-html'));
+        this.cssEditor_TABLET_MOBILE.setValue(this.cacheService.getElement('codebuilder-example-css'));
+        this.jsEditor_TABLET_MOBILE.setValue(this.cacheService.getElement('codebuilder-example-js'));
+      }
+      this.cacheService.setElement('codebuilder-example', false);
+    }
   }
 
   /* DESTROY WRITTER */

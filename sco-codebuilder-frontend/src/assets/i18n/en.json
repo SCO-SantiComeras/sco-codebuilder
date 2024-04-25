@@ -21,5 +21,7 @@
 
     "label.download.store.downloadFolder.success": "Files download successfully",
     "label.download.store.downloadFolder.error": "Unnable to download files",
-    "label.download.store.downloadFolder.catch": "Error trying to download files"
+    "label.download.store.downloadFolder.catch": "Error trying to download files",
+
+    "label.codebuilder-example.component.example.html.button": "Greet"
 }
