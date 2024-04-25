@@ -17,7 +17,6 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { ToastService } from './toast/toast.service';
 import { MatDialogModule } from '@angular/material/dialog';
-import { ConfirmDialogComponent } from './dialogs/confirm-dialog/confirm-dialog.component';
 import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
@@ -47,14 +46,12 @@ import { ToastComponent } from './toast/toast/toast.component';
     ConfigPipe,
     TranslatePipe,
     JoinPipe,
-    ConfirmDialogComponent,
     ToastComponent,
   ],
   exports: [
     ConfigPipe,
     TranslatePipe,
     JoinPipe,
-    ConfirmDialogComponent,
     ToastComponent,
   ],
   providers:[
