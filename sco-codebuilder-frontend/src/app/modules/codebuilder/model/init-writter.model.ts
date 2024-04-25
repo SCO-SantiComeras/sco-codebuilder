@@ -1,4 +1,4 @@
 export class InitWritter {
-    token: string;
+    token?: string;
     result?: boolean;
 }

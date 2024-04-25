@@ -104,13 +104,9 @@ export class WritterController {
     @Body() initWritter: InitWritterDto,
   ): Promise<Response<InitWritterDto, Record<string, InitWritterDto>>> {
 
-    // Check if exists Token folder
-    const existTokenFolder: boolean = await this.writterService.existsTokenFolder(initWritter.token);
-    if (existTokenFolder) {
-      console.log(`[init] Token folder already created`);
-      throw new HttpException(httpErrorMessages.WRITTER.TOKEN_FOLDER_ALREADY_CREATED, HttpStatus.CONFLICT);
-    }
-
+    // Generate Init Writter Token (Folder name)
+    initWritter.token = await this.writterService.generateInitWritterToken();
+    
     // Create token folder
     const createdTokenFolder: boolean = await this.writterService.createTokenFolder(initWritter.token);
     if (!createdTokenFolder) {

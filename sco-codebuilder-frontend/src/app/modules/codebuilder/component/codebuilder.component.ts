@@ -1,3 +1,4 @@
+import { cloneDeep } from 'lodash-es';
 import { Store } from '@ngxs/store';
 import { AfterViewInit, Component, ElementRef, HostListener, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
@@ -79,7 +80,6 @@ export class CodebuilderComponent implements OnInit, AfterViewInit, OnDestroy {
     this.title_content3 = "JS";
     this.typeSelected = this.title_content1;
     this.InitWritter = new InitWritter();
-    this.InitWritter.token = this.generateToken();
 
     this.showLogs = false;
     this.consoleLogs = [];
@@ -103,6 +103,9 @@ export class CodebuilderComponent implements OnInit, AfterViewInit, OnDestroy {
           this.toastService.addErrorMessage('Initwritter.error');
           return;
         }
+
+        const initWritter: InitWritter = this.store.selectSnapshot(CodebuilderState.iniWritter);
+        this.InitWritter = cloneDeep(initWritter); 
         
         this.getUrl();
       },
@@ -244,17 +247,6 @@ export class CodebuilderComponent implements OnInit, AfterViewInit, OnDestroy {
         this.toastService.addErrorMessage('writte.error');
       }
     });
-  }
-
-  /* GENERATE INIT TOKEN */
-  private generateToken() {
-    let text: string = "";
-    let possible: string = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
-
-    for (let i: number = 0; i < 64; i++)
-      text += possible.charAt(Math.floor(Math.random() * possible.length));
-
-    return text;
   }
 
   /* MOBILE / TABLET ACTIONS */

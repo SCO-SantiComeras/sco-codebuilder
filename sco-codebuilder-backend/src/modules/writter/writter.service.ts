@@ -150,4 +150,21 @@ export class WritterService {
     }
     return false;
   }
+
+  /* Token */
+  public async generateInitWritterToken(length: number = 64): Promise<string> {
+    const possible: string = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+
+    let existTokenFolder: boolean = true;
+    let text: string = "";
+    while (existTokenFolder) {
+      for (let i: number = 0; i < length; i++) {
+        text += possible.charAt(Math.floor(Math.random() * possible.length));
+      }
+
+      existTokenFolder = await this.existsTokenFolder(text);
+    }
+
+    return text;
+  }
 }
