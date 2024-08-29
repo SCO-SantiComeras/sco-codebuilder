@@ -5,14 +5,13 @@ import { CodebuilderExampleComponent } from './modules/codebuilder-example/codeb
 
 const routes: Routes = [
   {
-    path: 'codebuilder',
+    path: '',
     component: CodebuilderComponent,
   },
   {
     path: 'codebuilder-example',
     component: CodebuilderExampleComponent,
   },
-  { path: '', redirectTo: 'codebuilder', pathMatch: 'full' },
   { path: '**', redirectTo: '', pathMatch: 'full' },
 ];
 
